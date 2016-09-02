@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.3.0'
 gem 'rails', '4.2.4'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -30,5 +31,6 @@ group :test do
   gem "capybara", "2.6.2"
 end
 
-
-
+group :production do
+  gem 'rails_12factor'
+end
