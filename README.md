@@ -14,11 +14,24 @@ employees.
 
 Working hours for employees are from 9 am to 6 pm, Monday to Friday.
 
+## Installation instructions
+- Clone the app run bundle etc. as usual.
+- Run ```rake db:create``` to create the database as usual.
+- Run ```rake db:migrate``` to create db tables and fields as usual.
+- Run ```rake db:seed``` to seed some useful example data to the db.
+- Get your server up and running using: ```rails s```
+- Open your browser in http://localhost:3000/
+- To enter to the admin area the username is ```admin@example.com``` and
+  password: ```1234567890```
+
+- If you have any trouble feel free to contact me.
+
 ## Features
 
 ### 1. Employees arriving Late
 Be able to see which employees are arriving late.
-Effort points: 3
+
+#### Effort points: 3
 
 #### Assumptions:
 - This part (Employees Arriving Late) is only accessible to an registered user 
@@ -31,7 +44,8 @@ punchcard.
 
 ### 2. Employees absences
 Know which employees are not coming to work at all.
-Effort points: 2
+
+#### Effort points: 2
 
 #### Assumptions:
 - This part (Employees Absences) is only accessible to an registered user 
@@ -43,7 +57,8 @@ punchcard.
 ### 3. Working hours report
 Give each of his employees the opportunity to review their current period 
 working hours report 3 days before the paycheck day.
-Effort points: 1
+
+#### Effort points: 1
 
 #### Assumptions:
 - The 'entries' table has the arrivals and departures in the same row.
