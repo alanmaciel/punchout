@@ -16,7 +16,7 @@
                 <% if current_user %>
                     <li><%= link_to "Admin menu", admin_menu_path %></li>
                 <% else %>
-                    <li><a href="#about">About</a></li>
+                    <li><%= link_to "Working Hours Report", employee_menu_path %><li>
                 <% end %>
             </ul>
             <ul class="nav navbar-nav navbar-right">
