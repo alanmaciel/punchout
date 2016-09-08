@@ -13,7 +13,11 @@
             <ul class="nav navbar-nav">
                 <li class="active"><%= link_to "Home", root_path %></li>
                 <li></li>
-                <li><a href="#about">About</a></li>
+                <% if current_user %>
+                    <li><%= link_to "Admin menu", admin_menu_path %></li>
+                <% else %>
+                    <li><a href="#about">About</a></li>
+                <% end %>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <% if current_user %>
@@ -25,4 +29,3 @@
         </div><!--/.nav-collapse -->
     </div>
 </nav>
-

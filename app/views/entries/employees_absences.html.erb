@@ -1,20 +1,19 @@
-<h1>Employees arriving late</h1>
+<h1>Employees with absences</h1>
 <div class="well">
     <p>Current period: <%= @current_period.description %></p>
     <p>from <%= @current_period.initial_date %> to <%= @current_period.final_date %>.</p>
-    <p>Tolerance: <%= @arrival_tolerance %></p>
 </div>
 
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Barcode</th>
-            <th>Late entries count</th>
-            <th>Late entries dates</th>
+            <th>Employee barcode</th>
+            <th>Absences</th>
+            <th>Absences dates</th>
         </tr>
     </thead>
     <tbody>
-        <% @late_entries.each do |key, value| %>
+        <% @absences.each do |key, value| %>
             <tr>
                 <td>
                     <%= key %>
@@ -25,7 +24,7 @@
                 <td>
                     <ul class="nav nav-pills nav-stacked">
                         <% value.each_with_index do |v, index| %>
-                            <li><%= value[index].arrival_at.strftime("%F at %I:%M%p") %></li>
+                            <li><%= value[index] %></li>
                         <% end %>
                     </ul>
                 </td>
