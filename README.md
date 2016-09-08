@@ -14,9 +14,10 @@ employees.
 
 Working hours for employees are from 9 am to 6 pm, Monday to Friday.
 
-### Features
+## Features
 
-1. Be able to see which employees are arriving late.
+### 1. Employees arriving Late
+Be able to see which employees are arriving late.
 Effort points: 3
 
 #### Assumptions:
@@ -25,18 +26,28 @@ Effort points: 3
 - Assuming that the entries table is already loaded with data from the 
 punchcard.
 - The current period is calculated automatically using today date.
+- There are not Holidays
+- The workweek is from Monday to Friday
 
-2. Know which employees are not coming to work at all.
+### 2. Employees absences
+Know which employees are not coming to work at all.
 Effort points: 2
 
 #### Assumptions:
+- This part (Employees Absences) is only accessible to an registered user 
+(admin).
+- Assuming that the entries table is already loaded with data from the 
+punchcard.
+- The current period is calculated automatically using today date.
 
-3. Give each of his employees the opportunity to review their current period 
+### 3. Working hours report
+Give each of his employees the opportunity to review their current period 
 working hours report 3 days before the paycheck day.
 Effort points: 2
 
 #### Assumptions:
-
+- The 'entries' table has the arrivals and departures in the same row.
+- This report is only available the third day before the payday.
 
 ### Schedules
 
