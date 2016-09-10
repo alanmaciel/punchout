@@ -21,7 +21,7 @@ class Entry < ActiveRecord::Base
 
     barcodes = entries.map { |e| e.barcode }
     barcodes.each { |b| employees_list << b unless employees_list.include? b }
-    return employees_list
+    employees_list
   end
 
   def self.get_period_working_days(initial_date, final_date)
@@ -31,7 +31,7 @@ class Entry < ActiveRecord::Base
       working_days << initial_date + i.day unless (initial_date + i.day).saturday? ||
                                                   (initial_date + i.day).sunday?
     end
-    return working_days
+    working_days
   end
 
   def self.get_absences(employees_list, working_days, entries)
@@ -47,7 +47,7 @@ class Entry < ActiveRecord::Base
       absences[emp] = absences_counter
       absences_counter = []
     end
-    return absences
+    absences
   end
 
 end
