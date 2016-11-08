@@ -1,9 +1,15 @@
 <div id="loginbox" style="margin-top:10px;" class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <div class="panel-title">Login</div>
+      <div class="panel-title">Admin area</div>
     </div>
     <div style="padding-top:30px" class="panel-body" >
+      <p>
+        This part is only accessible to admin user.
+      </p>
+      <p>
+        Here the admin user has access to Employees Absences Report and Late arrivals Report.
+      </p>
       <%= form_tag sessions_path do %>
         <%= label_tag "email" %>
         <div class="form-group form-group-md input-group">
@@ -11,14 +17,14 @@
           <div class="input-group-addon">
             <span class="glyphicon glyphicon-user">
           </div>
-          <%= text_field_tag :email, nil, required: true, autofocus: true, class: "form-control" %>
+          <%= text_field_tag :email, nil, required: true, autofocus: true, class: "form-control", placeholder: "admin@example.com" %>
         </div>
         <%= label_tag "password" %>
         <div class="form-group form-group-md input-group">
           <div class="input-group-addon">
             <span class="glyphicon glyphicon-lock">
           </div>
-          <%= password_field_tag :password, nil, required: true, class: "form-control" %>
+          <%= password_field_tag :password, nil, required: true, class: "form-control", placeholder: "1234567890" %>
         </div>
         <%= submit_tag "Sign in", class: "btn btn-primary btn-md" %>
       <% end %>

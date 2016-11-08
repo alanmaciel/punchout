@@ -5,11 +5,15 @@
         </div>
         <div style="padding-top:30px" class="panel-body" >
             <%= form_tag working_hours_path do %>
-                <%= label_tag "barcode" %>
+              <%= label_tag "Badge Barcode" %>
+              <p>
+                Please type your badge card carcode and press Continue.
+              </p>
+
                 <div class="form-group form-group-md input-group">
 
                     <div class="input-group-addon">
-                        <span class="glyphicon glyphicon-user">
+                        <span class="glyphicon glyphicon-credit-card">
                     </div>
                     <%= text_field_tag :barcode, nil, required: true, autofocus: true, class: "form-control" %>
                 </div>
