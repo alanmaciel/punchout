@@ -8,15 +8,15 @@
     <thead>
         <tr>
             <th>Employee barcode</th>
-            <th>Absences</th>
-            <th>Absences dates</th>
+            <th>Total Absences<br> in the period</th>
+            <th>Absences dates <br>(Weekends not included)</th>
         </tr>
     </thead>
     <tbody>
         <% @absences.each do |key, value| %>
             <tr>
                 <td>
-                    <%= key %>
+                    <%= key.barcode %>
                 </td>
                 <td>
                     <%= value.size %>      
