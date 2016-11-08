@@ -2,8 +2,8 @@
 <div class="well">
     <p>Current period: <%= @current_period.description %></p>
     <p>From <%= @current_period.initial_date %> to <%= @current_period.final_date %>.</p>
-    <p>Payday: <%= @current_period.payday %></p>
-    Days to pay:  <%=  @current_period.days_to_payday(@current_period.payday) %>
+    <p>Payday date: <%= @current_period.payday %></p>
+    Days remaining to reach the payday:  <%=  @current_period.days_to_payday(@current_period.payday) %>
 </div>
 
 <table class="table table-striped">

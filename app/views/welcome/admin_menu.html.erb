@@ -1,3 +1,82 @@
 <h1>Admin Menu</h1>
 <%= link_to "Employees arriving late", late_entries_path, class: "btn btn-primary btn-lg btn-block" %>
+<div class="well">
+  <h3>Be able to see which employees are arriving late.</h3>
+  <h4>Assumptions:</h4>
+  <ul>
+    <li>This part (Employees Arriving Late) is only accessible to an registered user 
+      (admin).</li>
+    <li>Assuming that the entries table is already loaded with data from the 
+      punchcard.</li>
+    <li>The current period is calculated automatically using today date.</li>
+    <li>There are not Holidays</li>
+    <li>The workweek is from Monday to Friday</li>
+  </ul>
+</div>
 <%= link_to "Employees with absences", employees_absences_path, class: "btn btn-primary btn-lg btn-block" %>
+<div class="well">
+  <h3>Know which employees are not coming to work at all.</h3>
+  <h4>Assumptions:</h4>
+  <ul>
+    <li>This part (Employees Absences) is only accessible to an registered user 
+      (admin).</li>
+    <li>Assuming that the entries table is already loaded with data from the 
+      punchcard.</li>
+    <li>The current period is calculated automatically using today date.</li>
+  </ul>
+</div>
+
+<p>The app uses the following data tables <%= link_to "Entity Relational Diagram", "https://github.com/alanmaciel/punchout/blob/fixing_seeds/erd.pdf" %> </p>
+<div class="well">
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        Entry table
+      </h3>
+    </div>
+    <div class="panel-body">
+      <p>
+        Is populated somehow with the entries data from the punchcard machine.
+      </p>
+    </div>
+  </div>
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        Period table
+      </h3>
+    </div>
+    <div class="panel-body">
+      <p>
+        Is populated by the admin user, the punchout app needs the period's initial and final date, the payday, and a text description for the period.
+      </p>
+      <p>
+        IMPORTANT: maybe you need to update in the database the payday date, as employees can review their periods entries only if today is 3 days before the payday date. 
+      </p>
+    </div>
+    </div>
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Schedule table
+        </h3>
+      </div>
+      <div class="panel-body">
+        <p>
+          Is populated by the admin user too, the punchout app needs the arrival tolerance and the working time schedule (start at and ends at).
+        </p>
+      </div>
+    </div>
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          User table
+        </h3>
+      </div>
+      <div class="panel-body">
+        <p>
+          The user table is only for admin users, the employees doesn't need to log in to see theirs entries, they only need theirs badge barcode number.
+        </p>
+      </div>
+    </div>
+</div>
