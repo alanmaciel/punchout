@@ -1,27 +1,20 @@
 class Entry < ActiveRecord::Base
 
   def self.late_entries(tolerance, initial_date, final_date)
-    late_entries = Entry.all.select do |e|
-      e.arrival_at.strftime("%H:%M:%S") > tolerance &&
-        e.arrival_at.strftime("%Y-%m-%d") >= initial_date.strftime("%Y-%m-%d") &&
-        e.arrival_at.strftime("%Y-%m-%d") <= final_date.strftime("%Y-%m-%d")
-    end
+    late_entries = Entry.where("to_char(arrival_at, 'HH:MI') > ? AND
+                 arrival_at BETWEEN ? AND ? ",
+                 tolerance, initial_date, final_date)
     late_entries.group_by { |e| e.barcode }.sort
   end
 
   def self.current_period_entries(initial_date, final_date)
-    Entry.all.select do |e|
-      e.arrival_at.strftime("%Y-%m-%d") >= initial_date.strftime("%Y-%m-%d") &&
-        e.arrival_at.strftime("%Y-%m-%d") <= final_date.strftime("%Y-%m-%d")
-    end
+    Entry.where("arrival_at BETWEEN ? AND ?",
+                initial_date.strftime("%Y-%m-%d"),
+                final_date.strftime("%Y-%m-%d"))
   end
 
   def self.extract_employees_list(entries)
-    employees_list = []
-
-    barcodes = entries.map { |e| e.barcode }
-    barcodes.each { |b| employees_list << b unless employees_list.include? b }
-    employees_list
+    entries.find_by_sql("SELECT DISTINCT barcode FROM entries;")
   end
 
   def self.get_period_working_days(initial_date, final_date)
@@ -40,7 +33,7 @@ class Entry < ActiveRecord::Base
     employees_list.each do |emp|
       working_days.each.with_index do |d, i|
         absences_counter << d.strftime("%Y-%m-%d") unless entries.detect do |entry|
-          entry.barcode == emp &&
+          entry.barcode == emp.barcode &&
             entry.arrival_at.strftime("%Y-%m-%d") == d.strftime("%Y-%m-%d")
         end
       end
