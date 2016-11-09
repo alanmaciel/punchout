@@ -1,31 +1,33 @@
 <nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <%= link_to "Punchout", root_path, class: "navbar-brand" %>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><%= link_to "Home", root_path %></li>
-                <li></li>
-                <% if current_user %>
-                    <li><%= link_to "Admin menu", admin_menu_path %></li>
-                <% else %>
-                    <li><%= link_to "Working Hours Report", employee_menu_path %><li>
-                <% end %>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <% if current_user %>
-                    <li><%= link_to "Logout", logout_path, method: :delete %></li>
-                <% else %>
-                    <li><%= link_to "Admin", login_path %></li>
-                <% end %>
-            </ul>
-        </div><!--/.nav-collapse -->
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+              data-toggle="collapse" data-target="#navbar"
+              aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Punchout", root_path, class: "navbar-brand" %>
     </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><%= link_to "Home", root_path %></li>
+        <li></li>
+        <% if current_user %>
+          <li><%= link_to "Admin menu", admin_menu_path %></li>
+        <% else %>
+          <li><%= link_to "Employee Working Hours Report", employee_menu_path %><li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Admin", login_path %></li>
+        <% end %>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
 </nav>

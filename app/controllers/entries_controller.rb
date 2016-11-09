@@ -27,6 +27,7 @@ class EntriesController < ApplicationController
     if  @current_period.days_to_payday(@current_period.payday) == 3
       @initial_date = @current_period.initial_date
       @final_date = @current_period.final_date
+      @barcode = params[:barcode]
 
       entries = Entry.current_period_entries(@initial_date, @final_date)
 
