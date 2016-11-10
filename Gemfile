@@ -16,7 +16,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   gem 'byebug'
-  gem "rspec-rails", "3.4.2"
+  gem 'rspec-rails', '3.4.2'
   gem 'pry'
   gem 'better_errors'
   gem 'quiet_assets'
@@ -30,7 +30,8 @@ group :development do
 end
 
 group :test do
-  gem "capybara", "2.6.2"
+  gem 'capybara', '2.6.2'
+  gem 'launchy'
 end
 
 group :production do

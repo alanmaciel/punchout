@@ -8,7 +8,7 @@ class Entry < ActiveRecord::Base
   end
 
   def self.current_period_entries(initial_date, final_date)
-    Entry.where("arrival_at BETWEEN ? AND ?",
+    Entry.where("cast(arrival_at as date) BETWEEN ? AND ?",
                 initial_date.strftime("%Y-%m-%d"),
                 final_date.strftime("%Y-%m-%d"))
   end

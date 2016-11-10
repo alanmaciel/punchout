@@ -14,11 +14,11 @@
     </thead>
     <tbody>
         <% @absences.each do |key, value| %>
-            <tr>
-                <td>
+            <tr id="<%= key.barcode %>">
+                <td class="barcode">
                     <%= key.barcode %>
                 </td>
-                <td>
+                <td class="value">
                     <%= value.size %>      
                 </td>
                 <td>
