@@ -30,7 +30,8 @@ group :development do
 end
 
 group :test do
-  gem "capybara", "2.6.2"
+  gem 'capybara', '2.6.2'
+  gem 'launchy'
 end
 
 group :production do

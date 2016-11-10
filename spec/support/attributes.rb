@@ -2,8 +2,8 @@ def user_attributes(overrides = {})
   {
     name: "Example Admin User",
     email: "admin@example.com",
-    password: "secret",
-    password_confirmation: "secret"
+    password: "secret12345",
+    password_confirmation: "secret12345"
   }.merge(overrides)
 end
 
@@ -23,3 +23,4 @@ def schedule_attributes(overrides = {})
     arrival_tolerance: '09:10:00'
   }.merge(overrides)
 end
+
